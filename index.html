@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste de Tâches Interactive</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1> GESTION DE PLANNING</h1>
+    </header>
+    <main class="container">
+        <section class="section-1">
+            <h2>
+                Plateforme interactive pour une gestion efficace des plannings.
+            </h2>
+            <form id="mon-formulaire">
+                <input type="text" placeholder="Veuillez entrer une nouvelle tâche" id="tache">
+                <label for="">Date de fin :</label>
+                <input type="date" name="" id="date-echeance">
+                <label for="">Priorité :</label>
+                <input type="checkbox" name="" id="case-cocher">
+                <button type="submit">Ajouter</button>
+            </form>
+        </section>
+        <section class="section-2">
+            <h2>LISTE DES TACHES</h2>
+            <table class="liste-tache">
+                <tr>
+                    <th>Tâches</th>
+                    <th>Priorisation</th>
+                    <th>Date de fin</th>
+                    <th>Suppression</th>
+                </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
