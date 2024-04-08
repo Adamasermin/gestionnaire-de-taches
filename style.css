@@ -95,12 +95,14 @@ th:last-child, td:last-child {
 }
 
 .delete {
+    width: 100%;
     background-color: #dc3545;
     color: #fff;
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
+    
 }
 
 .delete:hover {
@@ -108,6 +110,26 @@ th:last-child, td:last-child {
 }
 
 
+@keyframes anime {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ligne-tab.ajout {
+    animation: anime 0.5s ease forwards;
+}
+
+
+
+
+
+/* Affichage sur les tablettes */
 @media screen and (max-width: 768px) {
     .container {
     display: block;
@@ -121,12 +143,15 @@ th:last-child, td:last-child {
     }
 }
 
+/* Affichage sur les mobiles */
 @media screen and (max-width: 576px){
     table {
         width: 100%;
         border-collapse: collapse;
     }
 }
+
+/* Affichage sur les petits mobiles */
 @media screen and (min-width: 320px){
     table th, table td {
         padding: 5px; 

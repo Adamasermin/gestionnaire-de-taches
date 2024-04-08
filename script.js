@@ -1,38 +1,23 @@
-/*$(document).ready(function() {
-    $("#mon-formulaire").submit(function(event) {
-        event.preventDefault();
-  
-        let tache = $("#tache").val();
-        let date = $("#date-echeance").val();
-        let priorite = $("#case-cocher").val();
-
-        $("#valeur-tache").html(tache)
-        $("#valeur-date").html(date)
-        $("#valeur-priorite").html(priorite)
-  
-    });
-  });*/
-
-  $(document).ready(function() {
-    //
+$(document).ready(function() {
+    
     let taches = JSON.parse(localStorage.getItem('taches')) || [];
-
-    // 
-    function displayTasks() {
+    
+    //La fonction affichage des taches
+    function Affichage() {
         $('.ligne-tab').remove();
         taches.forEach(function(task, index) {
             $('.liste-tache').append(`
-                <tr class="ligne-tab" data-index="${index}">
+                <tr class="ligne-tab ajout" data-index="${index}">
                     <td>${task.name}</td>
                     <td>${task.priority}</td>
                     <td>${task.dueDate}</td>
-                    <td><button class="delete">Supprimer</button></td>
+                    <td><button class="delete ">Supprimer</button></td>
                 </tr>
             `);
         });
     }
 
-    // 
+    // evenement soummettant le formulaire 
     $('#mon-formulaire').submit(function(event) {
         event.preventDefault();
         var taskName = $('#tache').val();
@@ -40,18 +25,18 @@
         var priority = $('#case-cocher').prop('checked') ? 'Prioritaire' : 'Non Prioritaire';
         taches.push({ name: taskName, dueDate: dueDate, priority: priority });
         localStorage.setItem('tasks', JSON.stringify(taches));
-        displayTasks();
+        Affichage();
         this.reset();
     });
 
-    // Delete task
+    // l'evenement delete sur le boutton supprimer
     $('.liste-tache').on('click', '.delete', function() {
         var index = $(this).closest('tr').data('index');
         taches.splice(index, 1);
         localStorage.setItem('taches', JSON.stringify(taches));
-        displayTasks();
+        Affichage();
     });
 
-    // Display tasks on page load
-    displayTasks();
+    // Appel de la fonction Affichage en chargeant la page
+    Affichage();
 });

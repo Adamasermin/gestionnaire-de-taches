@@ -9,31 +9,35 @@
     <script src="script.js"></script>
 </head>
 <body>
+    <!-- la partie header -->
     <header>
         <h1> GESTION DE PLANNING</h1>
     </header>
+    <!-- la partie main (le conteneur principal) -->
     <main class="container">
+        <!-- la premiere section consacrer au formulaire -->
         <section class="section-1">
             <h2>
                 Plateforme interactive pour une gestion efficace des plannings.
             </h2>
-            <form id="mon-formulaire">
-                <input type="text" placeholder="Veuillez entrer une nouvelle tâche" id="tache">
-                <label for="">Date de fin :</label>
-                <input type="date" name="" id="date-echeance">
-                <label for="">Priorité :</label>
-                <input type="checkbox" name="" id="case-cocher">
+            <form id="mon-formulaire" role="form" aria-label="Formulaire d'ajout de tâches">
+                <input type="text" placeholder="Veuillez entrer une nouvelle tâche" id="tache" aria-label="Entrez votre tâche ici">
+                <label for="date-echeance">Date de fin :</label>
+                <input type="date" name="" id="date-echeance" aria-label="Date de fin de la tâche">
+                <label for="case-cocher">Priorité :</label>
+                <input type="checkbox" name="" id="case-cocher" aria-label="Case à cocher pour priorité">
                 <button type="submit">Ajouter</button>
             </form>
+            <!-- la deuxieme section consacrer a l'affichage -->
         </section>
         <section class="section-2">
             <h2>LISTE DES TACHES</h2>
-            <table class="liste-tache">
+            <table class="liste-tache" role="table" aria-label="Liste des tâches">
                 <tr>
-                    <th>Tâches</th>
-                    <th>Priorisation</th>
-                    <th>Date de fin</th>
-                    <th>Suppression</th>
+                    <th scope="col">Tâches</th>
+                    <th scope="col">Priorisation</th>
+                    <th scope="col">Date de fin</th>
+                    <th scope="col">Suppression</th>
                 </tr>
             </table>
         </section>
