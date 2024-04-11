@@ -4,158 +4,167 @@
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
+    background-color: #f0f0f0;
+  }
+  
 header {
     background-color: #007bff;
-    color: #fff;
+    color: white;
     padding: 20px;
     text-align: center;
+  }
+header img {
+    width: 80px;
+    height: 80px;
 }
-
-h1 {
-    margin: 0;
-}
-
+  
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
-}
-
-.section-1, .section-2 {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+.section-1 {
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-p {
+  
+.section-1 h2 {
     margin-top: 0;
 }
-
-form {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="date"],
-button {
-    padding: 10px;
+  
+#mon-formulaire input[type="text"],
+#mon-formulaire input[type="date"],
+#mon-formulaire input[type="checkbox"],
+#mon-formulaire button {
     margin-bottom: 10px;
+    padding: 10px;
     width: calc(100% - 20px);
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
-
-button {
+  
+#mon-formulaire button {
     background-color: #007bff;
-    color: #fff;
+    color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
-
-button:hover {
+  
+#mon-formulaire button:hover {
     background-color: #0056b3;
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
+  
+.section-2 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-th, td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
+  
+.section-2 h2 {
+    margin-top: 0;
 }
-
-th {
-    background-color: #007bff;
-    color: #fff;
+  
+.ligne-tab {
+    list-style-type: none;
+    padding: 0;
 }
-
-th:first-child, td:first-child {
-    border-left: 1px solid #ddd;
+  
+.ligne-tab li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    animation: slideIn 0.5s forwards;
 }
-
-th:last-child, td:last-child {
-    border-right: 1px solid #ddd;
-}
-
-.delete {
-    width: 100%;
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    
-}
-
-.delete:hover {
-    background-color: #c82333;
-}
-
-
-@keyframes anime {
+  
+@keyframes slideIn {
     from {
-        opacity: 0;
-        transform: translateY(20px);
+      opacity: 0;
+      transform: translateX(-50px);
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateX(0);
     }
 }
-
-.ligne-tab.ajout {
-    animation: anime 0.5s ease forwards;
+  
+.ligne-tab li button.supprimer {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
-
-
-
-
-
-/* Affichage sur les tablettes */
-@media screen and (max-width: 768px) {
-    .container {
-    display: block;
-    }
-    .section-2{
-        margin-top: 10px;
-    }
-    th, td{
-        text-align: center;
-
-    }
+  
+.ligne-tab li button.supprimer:hover {
+    background-color: #c82333;
 }
-
-/* Affichage sur les mobiles */
-@media screen and (max-width: 576px){
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+  
+.ligne-tab li div {
+    font-size: 16px;
 }
-
-/* Affichage sur les petits mobiles */
-@media screen and (min-width: 320px){
-    table th, table td {
-        padding: 5px; 
-        font-size: 12px;
-    }
+  
+.ligne-tab li div:not(:last-child) {
+    margin-bottom: 5px;
 }
-
+  
+.ligne-tab li div:last-child {
+    font-style: italic;
+}
+/* Style pour les éléments de tâche */
+.task-item {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style pour le nom de la tâche */
+.task-name {
+    display: inline
+    ;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* Style pour la date de fin */
+.task-date {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+  }
+  
+  /* Style pour la priorité */
+.task-priority {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Style pour le bouton de suppression */
+  .supprimer {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+.supprimer:hover {
+    background-color: #c82333;
+  }
