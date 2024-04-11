@@ -1,40 +1,45 @@
-*, ::after, ::before{
+*,
+::after,
+::before {
     box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-  }
-  
+}
+
 header {
     background-color: #007bff;
     color: white;
     padding: 20px;
     text-align: center;
-  }
+}
+
 header img {
     width: 80px;
     height: 80px;
 }
-  
+
 .container {
     max-width: 800px;
     margin: 0 auto;
-  }
-  
-.section-1 {
+}
+
+.section-1,
+.section-2 {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-  
-.section-1 h2 {
+
+.section-1 h2,
+.section-2 h2 {
     margin-top: 0;
 }
-  
+
 #mon-formulaire input[type="text"],
 #mon-formulaire input[type="date"],
 #mon-formulaire input[type="checkbox"],
@@ -45,7 +50,7 @@ header img {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
-  
+
 #mon-formulaire button {
     background-color: #007bff;
     color: white;
@@ -53,109 +58,84 @@ header img {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-  
+
 #mon-formulaire button:hover {
     background-color: #0056b3;
 }
-  
-.section-2 {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    color: black;
+    overflow-x: auto; /* Ajout d'un défilement horizontal en cas de dépassement de la largeur de l'écran */
 }
-  
-.section-2 h2 {
-    margin-top: 0;
+
+.styled-table th{
+    background-color: #007bff;
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
 }
-  
-.ligne-tab {
-    list-style-type: none;
-    padding: 0;
+
+.styled-table td {   
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
 }
-  
-.ligne-tab li {
-    background-color: #f9f9f9;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    position: relative;
-    overflow: hidden;
-    animation: slideIn 0.5s forwards;
+
+/* Ajout de styles spécifiques pour les petites tailles d'écran */
+@media only screen and (max-width: 600px) {
+    .styled-table th,
+    .styled-table td {
+        padding: 5px;
+        word-wrap: break-word; /* Permettre le retour à la ligne pour les mots longs */
+    }
+    .styled-table th {
+        font-size: 14px;
+    }
+    .styled-table td {
+        font-size: 12px;
+    }
 }
-  
+
+/* Ajout de styles spécifiques pour les moyennes tailles d'écran */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .styled-table th,
+    .styled-table td {
+        padding: 7px;
+    }
+}
+
+.fade-in {
+    animation: slideIn ease 0.6s;
+}
+
 @keyframes slideIn {
     from {
-      opacity: 0;
-      transform: translateX(-50px);
+        opacity: 0;
+        transform: translateX(-50px);
     }
     to {
-      opacity: 1;
-      transform: translateX(0);
+        opacity: 1;
+        transform: translateX(0);
     }
 }
-  
-.ligne-tab li button.supprimer {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    cursor: pointer;
+
+.fade-out {
+    animation: slideOn ease 0.5s;
 }
-  
-.ligne-tab li button.supprimer:hover {
-    background-color: #c82333;
+
+@keyframes slideOn {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
-  
-.ligne-tab li div {
-    font-size: 16px;
-}
-  
-.ligne-tab li div:not(:last-child) {
-    margin-bottom: 5px;
-}
-  
-.ligne-tab li div:last-child {
-    font-style: italic;
-}
-/* Style pour les éléments de tâche */
-.task-item {
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Style pour le nom de la tâche */
-.task-name {
-    display: inline
-    ;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  /* Style pour la date de fin */
-.task-date {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 5px;
-  }
-  
-  /* Style pour la priorité */
-.task-priority {
-    font-size: 14px;
-    color: #555;
-  }
-  
-  /* Style pour le bouton de suppression */
-  .supprimer {
+
+.supprimer {
     background-color: #dc3545;
     color: white;
     border: none;
@@ -163,8 +143,8 @@ header img {
     margin-left: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
+}
+
 .supprimer:hover {
     background-color: #c82333;
-  }
+}
